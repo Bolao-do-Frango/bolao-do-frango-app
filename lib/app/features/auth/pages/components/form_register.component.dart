@@ -52,7 +52,7 @@ class FormRegisterComponent extends StatelessWidget {
         CustomButton.orange(
           text: 'Cadastrar',
           onPressed: () => Modular.to.pushNamedAndRemoveUntil(
-            '/auth/register_error',
+            '/auth/register_success',
             ModalRoute.withName('/auth/welcome'),
           ),
         ),
