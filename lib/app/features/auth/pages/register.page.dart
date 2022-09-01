@@ -1,8 +1,7 @@
+import 'package:bolao_do_frango_app/app/core/design/widgets/title.dart';
 import 'package:bolao_do_frango_app/app/features/auth/pages/components/form_register.component.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../core/design/tokens/token_text_style.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -30,12 +29,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 5.h),
-                  RichText(
-                    text: TextSpan(
-                      text: 'Cadastre-se',
-                      style: TokenTextStyle.heading1,
-                    ),
-                  ),
+                  const CustomTitle(text: 'Cadastre-se'),
                   FormRegisterComponent(),
                 ],
               ),

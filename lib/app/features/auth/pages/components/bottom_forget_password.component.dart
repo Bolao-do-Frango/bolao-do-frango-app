@@ -6,6 +6,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../core/design/tokens/token_text_style.dart';
+import '../../../../core/design/widgets/title.dart';
 
 class BottomForgetPasswordComponent extends StatelessWidget {
   BottomForgetPasswordComponent({super.key});
@@ -17,12 +18,7 @@ class BottomForgetPasswordComponent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        RichText(
-          text: TextSpan(
-            text: 'Esqueceu a senha?',
-            style: TokenTextStyle.heading1,
-          ),
-        ),
+        const CustomTitle(text: 'Esqueceu a senha?'),
         SizedBox(height: 3.h),
         Text(
           'Não se preocupe, nós enviamos uma nova senha para seu e-mail!',

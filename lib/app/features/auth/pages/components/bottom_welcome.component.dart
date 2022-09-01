@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../core/design/tokens/token_text_style.dart';
 import '../../../../core/design/widgets/button.dart';
+import '../../../../core/design/widgets/title.dart';
 
 class BottomWelcomeComponent extends StatelessWidget {
   const BottomWelcomeComponent({super.key});
@@ -14,12 +15,7 @@ class BottomWelcomeComponent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        RichText(
-          text: TextSpan(
-            text: 'Bolão do Frango',
-            style: TokenTextStyle.heading1,
-          ),
-        ),
+        const CustomTitle(text: 'Bolão do Frango'),
         SizedBox(height: 3.h),
         Text(
             'Lorem ipsum dolor sit amet consectetur adipiscing elit, '

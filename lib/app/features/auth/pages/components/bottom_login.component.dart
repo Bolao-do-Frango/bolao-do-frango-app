@@ -1,13 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sizer/sizer.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../core/design/tokens/token_colors.dart';
 import '../../../../core/design/tokens/token_text_style.dart';
 import '../../../../core/design/widgets/button.dart';
 import '../../../../core/design/widgets/input_text.dart';
+import '../../../../core/design/widgets/title.dart';
 import '../../controllers/login.controller.dart';
 
 class BottomLoginComponent extends StatelessWidget {
@@ -23,12 +24,7 @@ class BottomLoginComponent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        RichText(
-          text: TextSpan(
-            text: 'Entrar',
-            style: TokenTextStyle.heading1,
-          ),
-        ),
+        const CustomTitle(text: 'Entrar'),
         SizedBox(height: 3.h),
         CustomInputText(controller: _emailController, hintText: 'Email'),
         Padding(
