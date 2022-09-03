@@ -1,91 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../core/design/tokens/token_colors.dart';
+import '../../../../core/design/tokens/token_text_style.dart';
+import '../../../../core/design/widgets/card.dart';
+import '../../../../core/enums/bet_status.dart';
 import 'custom_text_with_icon.component.dart';
 
-class CustomCardComponent extends StatelessWidget {
-  const CustomCardComponent({
+class CardComponent extends StatelessWidget {
+  const CardComponent({
     super.key,
     required this.title,
     required this.value,
     required this.winner,
     required this.status,
+    required this.icon,
   });
 
   final String title;
   final String value;
   final String winner;
-  final String status;
+  final BetStatus status;
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: const Color(0xFFF4F4F4),
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        side: const BorderSide(
-          color: Color(0xFFD4D6DD),
-        ),
-        borderRadius: BorderRadius.all(Radius.circular(12.sp)),
-      ),
-      child: SizedBox(
-        width: 100.w,
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.sp,
-            vertical: 16.sp,
-          ),
-          child: Column(
+    return CustomCard(
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 14.sp,
-                    ),
-                  ),
-                  Text(
-                    'R\$ $value',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16.sp,
-                    ),
-                  ),
-                ],
+              RichText(
+                text: TextSpan(
+                  text: title,
+                  style: TokenTextStyle.heading4,
+                ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 1.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    TextWithIconComponent(
-                      text: winner,
-                      textStyle: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 10.sp,
-                        color: const Color(0xFFDB9B0B),
-                      ),
-                      icon: Icons.emoji_events,
-                      iconColor: const Color(0xFFDB9B0B),
-                    ),
-                    TextWithIconComponent(
-                      text: status,
-                      textStyle: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 10.sp,
-                      ),
-                      icon: Icons.done,
-                      iconColor: const Color(0xFF12AF6E),
-                    ),
-                  ],
+              Chip(
+                backgroundColor: TokenColors.kLightOrange,
+                visualDensity: VisualDensity.compact,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 2.w,
+                ),
+                label: Text(
+                  value,
+                  style: TokenTextStyle.caption,
                 ),
               ),
             ],
           ),
-        ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              TextWithIconComponent(
+                text: winner,
+                textStyle: TokenTextStyle.subtitleP.copyWith(
+                  color: TokenColors.kGold,
+                ),
+                icon: Icons.emoji_events,
+                iconColor: TokenColors.kGold,
+              ),
+              TextWithIconComponent(
+                text: status.description,
+                textStyle: TokenTextStyle.subtitleP,
+                icon: icon.icon!,
+                iconColor: icon.color!,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

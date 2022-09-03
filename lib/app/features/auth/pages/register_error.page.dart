@@ -9,7 +9,7 @@ class RegisterErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffoldComponent(
+    return CustomScaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -4,6 +4,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
+import 'core/design/tokens/token_colors.dart';
+
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class AppWidget extends StatelessWidget {
           theme: ThemeData(
             fontFamily: GoogleFonts.inter().fontFamily,
             textTheme: GoogleFonts.interTextTheme(),
-            scaffoldBackgroundColor: const Color(0xFFF4F4F4),
+            scaffoldBackgroundColor: TokenColors.kWhite1,
           ),
           routeInformationParser: Modular.routeInformationParser,
           routerDelegate: Modular.routerDelegate,

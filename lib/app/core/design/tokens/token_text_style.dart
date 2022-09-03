@@ -23,10 +23,22 @@ class TokenTextStyle {
     color: TokenColors.kDarkGrey,
   );
 
+  static TextStyle heading6 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 12.sp,
+    color: TokenColors.kBlack2,
+  );
+
   static TextStyle heading7 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 12.sp,
     color: TokenColors.kBlack1,
+  );
+
+  static TextStyle heading8 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 16.sp,
+    color: TokenColors.kBlack2,
   );
 
   static TextStyle subtitleP = TextStyle(

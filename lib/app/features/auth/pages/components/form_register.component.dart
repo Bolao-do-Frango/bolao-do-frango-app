@@ -33,7 +33,7 @@ class FormRegisterComponent extends StatelessWidget {
           text: 'Username',
         ),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 3.h),
+          padding: EdgeInsets.only(top: 3.h),
           child: const Divider(),
         ),
         InputWithTitle(

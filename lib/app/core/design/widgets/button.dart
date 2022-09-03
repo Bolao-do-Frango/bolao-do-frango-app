@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
   const CustomButton.white({
     required this.text,
     required this.onPressed,
-    this.backgroundColor = TokenColors.kWhite0,
+    this.backgroundColor = TokenColors.kWhite1,
     super.key,
   });
 
@@ -44,7 +44,7 @@ class CustomButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: backgroundColor == TokenColors.kWhite0
+        style: backgroundColor == TokenColors.kWhite1
             ? TokenTextStyle.textButtonWhite
             : TokenTextStyle.textButtonOrange,
       ),

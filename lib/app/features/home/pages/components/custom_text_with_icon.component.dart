@@ -21,9 +21,11 @@ class TextWithIconComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Text(
-          text,
-          style: textStyle,
+        RichText(
+          text: TextSpan(
+            text: text,
+            style: textStyle,
+          ),
         ),
         SizedBox(width: 1.w),
         Icon(

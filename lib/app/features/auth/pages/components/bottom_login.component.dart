@@ -56,7 +56,7 @@ class BottomLoginComponent extends StatelessWidget {
         SizedBox(height: 5.h),
         CustomButton.orange(
           text: 'Login',
-          onPressed: () => Modular.to.pushReplacementNamed('/home'),
+          onPressed: () => Modular.to.pushReplacementNamed('/home/'),
         ),
         SizedBox(height: 2.5.h),
         Center(
