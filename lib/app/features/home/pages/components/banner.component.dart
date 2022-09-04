@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../core/design/tokens/token_colors.dart';
@@ -52,7 +53,10 @@ class BannerComponent extends StatelessWidget {
                   ),
                   SizedBox(height: 3.h),
                   ElevatedButton(
-                    onPressed: isPlayoff ? () {} : () {},
+                    onPressed: () => Modular.to.pushNamed(
+                      '/pool/intro/',
+                      arguments: isPlayoff,
+                    ),
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsets>(
                           EdgeInsets.symmetric(
@@ -89,13 +93,16 @@ class BannerComponent extends StatelessWidget {
                 topRight: Radius.circular(12.sp),
                 bottomRight: Radius.circular(12.sp),
               ),
-              child: Image.asset(
-                isPlayoff
-                    ? 'assets/images/silhouette-of-a-man-playing-soccer-in-golden-hour-sunset.png'
-                    : 'assets/images/winning-trophy-football.png',
-                filterQuality: FilterQuality.high,
-                fit: BoxFit.cover,
-                height: 30.h,
+              child: Hero(
+                tag: 'image-intro',
+                child: Image.asset(
+                  isPlayoff
+                      ? 'assets/images/silhouette-of-a-man-playing-soccer-in-golden-hour-sunset.png'
+                      : 'assets/images/winning-trophy-football.png',
+                  filterQuality: FilterQuality.high,
+                  fit: BoxFit.cover,
+                  height: 30.h,
+                ),
               ),
             ),
           ),
