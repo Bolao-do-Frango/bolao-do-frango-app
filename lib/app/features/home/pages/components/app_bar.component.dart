@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/design/tokens/token_colors.dart';
 import '../../../../core/design/tokens/token_text_style.dart';
@@ -15,10 +16,13 @@ class AppBarComponent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.account_circle,
-                color: TokenColors.kBlack2,
+              onPressed: () => Modular.to.pushNamed('/account/details'),
+              icon: const Hero(
+                tag: 'account_circle',
+                child: Icon(
+                  Icons.account_circle,
+                  color: TokenColors.kBlack2,
+                ),
               ),
             ),
             Text(

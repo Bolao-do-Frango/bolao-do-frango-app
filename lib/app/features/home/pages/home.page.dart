@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../core/design/tokens/token_text_style.dart';
@@ -37,7 +38,7 @@ class HomePage extends StatelessWidget {
                 style: TokenTextStyle.heading8,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () => Modular.to.pushNamed('/ranking/'),
                 child: Text(
                   'Ver tudo',
                   style: TokenTextStyle.action,

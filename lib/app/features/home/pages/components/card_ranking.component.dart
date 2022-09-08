@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../core/design/tokens/token_colors.dart';
+import '../../../../core/design/components/line_ranking.component.dart';
 import '../../../../core/design/widgets/card.dart';
-import 'line_ranking.component.dart';
 
 class CardRankingComponent extends StatelessWidget {
   const CardRankingComponent({super.key});
@@ -14,30 +13,27 @@ class CardRankingComponent extends StatelessWidget {
       child: Column(
         children: <Widget>[
           const LineRankingComponent(
-            position: '1',
+            position: 1,
             name: 'DenisAlmeida',
-            points: '280',
-            colorIcon: TokenColors.kGold,
+            points: 280,
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 2.h),
             child: const Divider(),
           ),
           const LineRankingComponent(
-            position: '2',
+            position: 2,
             name: 'Daniel245',
-            points: '242',
-            colorIcon: TokenColors.kGrey,
+            points: 242,
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 2.h),
             child: const Divider(),
           ),
           const LineRankingComponent(
-            position: '3',
+            position: 3,
             name: 'Rick',
-            points: '202',
-            colorIcon: TokenColors.kBronze,
+            points: 202,
           ),
         ],
       ),

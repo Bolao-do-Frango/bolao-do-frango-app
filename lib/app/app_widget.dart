@@ -17,7 +17,7 @@ class AppWidget extends StatelessWidget {
     Modular.setInitialRoute('/auth/welcome');
 
     return Sizer(
-      builder: (context, orientation, deviceType) {
+      builder: (_, __, ___) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: 'Bolão do Frango',

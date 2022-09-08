@@ -54,7 +54,7 @@ class BannerComponent extends StatelessWidget {
                   SizedBox(height: 3.h),
                   ElevatedButton(
                     onPressed: () => Modular.to.pushNamed(
-                      '/pool/intro/',
+                      '/pool/intro',
                       arguments: isPlayoff,
                     ),
                     style: ButtonStyle(

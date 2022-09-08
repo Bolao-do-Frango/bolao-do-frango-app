@@ -1,8 +1,10 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'features/auth/auth_module.dart';
+import 'features/account/account.module.dart';
+import 'features/auth/auth.module.dart';
 import 'features/home/home.module.dart';
 import 'features/pool/pool.module.dart';
+import 'features/ranking/ranking.module.dart';
 
 class AppModule extends Module {
   @override
@@ -10,5 +12,7 @@ class AppModule extends Module {
         ModuleRoute('/auth', module: AuthModule()),
         ModuleRoute('/home', module: HomeModule()),
         ModuleRoute('/pool', module: PoolModule()),
+        ModuleRoute('/account', module: AccountModule()),
+        ModuleRoute('/ranking', module: RankingModule()),
       ];
 }

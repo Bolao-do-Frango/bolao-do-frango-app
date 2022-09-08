@@ -60,7 +60,10 @@ class IntroComponent extends StatelessWidget {
                       children: <Widget>[
                         GestureDetector(
                           onTap: onPressBack,
-                          child: const Icon(Icons.chevron_left),
+                          child: Icon(
+                            Icons.chevron_left,
+                            size: 20.sp,
+                          ),
                         ),
                         DotsIndicator(
                           dotsCount: 3,

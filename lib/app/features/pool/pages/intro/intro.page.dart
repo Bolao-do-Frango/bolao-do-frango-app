@@ -19,33 +19,61 @@ class IntroPage extends StatelessWidget {
     return Scaffold(
       body: Observer(
         builder: (_) {
-          controller.setIsPlayoff(isPlayoff);
-          return IntroComponent(
-            image: 'assets/images/${controller.image}.png',
-            onPressBack: controller.page == 0
-                ? () => Modular.to.pop()
-                : () {
-                    controller.backPage();
-                    _buildScreenElements();
-                  },
-            page: controller.page,
-            title: controller.title,
-            subtitle: controller.subtitle,
-            onPressButton: controller.page == 2
-                ? () {}
-                : () {
-                    controller.nextPage();
-                    _buildScreenElements();
-                  },
-          );
+          if (controller.page == 0 && isPlayoff) {
+            return IntroComponent(
+              image:
+                  'assets/images/silhouette-of-a-man-playing-soccer-in-golden-hour-sunset.png',
+              onPressBack: () => Modular.to.pop(),
+              page: controller.page,
+              title: 'Bolão eliminatórias',
+              subtitle: 'Faça sua aposta para a fase eliminatória '
+                  'e participe de um novo bolão!',
+              onPressButton: () {
+                controller.nextPage();
+              },
+            );
+          }
+          if (controller.page == 0) {
+            return IntroComponent(
+              image: 'assets/images/winning-trophy-football.png',
+              onPressBack: () => Modular.to.pop(),
+              page: controller.page,
+              title: 'Bolão do Frango',
+              subtitle: 'Preencha suas apostas para a copa, '
+                  'desde as fases de grupo até a final.',
+              onPressButton: () {
+                controller.nextPage();
+              },
+            );
+          }
+          if (controller.page == 1) {
+            return IntroComponent(
+              image: 'assets/images/soccer-into-goal-success-concept.png',
+              onPressBack: () => controller.backPage(),
+              page: controller.page,
+              title: 'Pague com Pix',
+              subtitle: 'O valor é fixo de R\$ 20,00 que '
+                  'deverá ser pago através do Pix.',
+              onPressButton: () {
+                controller.nextPage();
+              },
+            );
+          }
+          if (controller.page == 2) {
+            return IntroComponent(
+              image:
+                  'assets/images/soccer-players-in-action-on-professional-stadium.png',
+              onPressBack: () => controller.backPage(),
+              page: controller.page,
+              title: 'Receba com Pix',
+              subtitle: 'Cadastre a chave pix que deseja '
+                  'receber caso ganhe o bolão.',
+              onPressButton: () {},
+            );
+          }
+          return const CircularProgressIndicator();
         },
       ),
     );
-  }
-
-  void _buildScreenElements() {
-    controller.buildImage();
-    controller.buildTitle();
-    controller.buildSubtitle();
   }
 }

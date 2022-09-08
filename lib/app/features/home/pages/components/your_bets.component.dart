@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../core/design/tokens/token_colors.dart';
-import '../../../../core/enums/bet_status.dart';
+import '../../../../core/enums/pool_status.dart';
 import 'custom_card.component.dart';
 
 class YourBetsComponent extends StatelessWidget {
@@ -18,7 +18,7 @@ class YourBetsComponent extends StatelessWidget {
           title: 'Bolão do Frango',
           value: '003',
           winner: 'Brasil',
-          status: BetStatus.done,
+          status: PoolStatus.done,
           icon: Icon(
             Icons.check,
             color: TokenColors.kGreen,
@@ -29,7 +29,7 @@ class YourBetsComponent extends StatelessWidget {
           title: 'Bolão do Frango',
           value: '002',
           winner: 'Brasil',
-          status: BetStatus.inProgress,
+          status: PoolStatus.inProgress,
           icon: Icon(
             Icons.priority_high,
             color: TokenColors.kGold,
@@ -40,7 +40,7 @@ class YourBetsComponent extends StatelessWidget {
           title: 'Bolão do Frango',
           value: '001',
           winner: 'Brasil',
-          status: BetStatus.pending,
+          status: PoolStatus.pending,
           icon: Icon(
             Icons.close,
             color: TokenColors.kRed,

@@ -10,12 +10,14 @@ class CustomInputText extends StatelessWidget {
     required this.hintText,
     this.suffixIcon,
     this.obscureText = false,
+    this.enabled = true,
   });
 
   final TextEditingController controller;
   final String hintText;
   final IconButton? suffixIcon;
   final bool obscureText;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class CustomInputText extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       obscuringCharacter: '*',
+      enabled: enabled,
       cursorColor: TokenColors.kOrange,
       style: TokenTextStyle.body3,
       decoration: InputDecoration(
@@ -32,6 +35,10 @@ class CustomInputText extends StatelessWidget {
           borderSide: const BorderSide(color: TokenColors.kOrange),
         ),
         enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: TokenColors.kGrey),
+        ),
+        disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: TokenColors.kGrey),
         ),

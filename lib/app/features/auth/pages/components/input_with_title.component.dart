@@ -9,10 +9,14 @@ class InputWithTitle extends StatelessWidget {
     super.key,
     required this.textEditingController,
     required this.text,
+    this.enabled = true,
+    this.suffixIcon,
   });
 
   final TextEditingController textEditingController;
   final String text;
+  final bool enabled;
+  final IconButton? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +32,8 @@ class InputWithTitle extends StatelessWidget {
         CustomInputText(
           controller: textEditingController,
           hintText: text,
+          suffixIcon: suffixIcon,
+          enabled: enabled,
         ),
       ],
     );

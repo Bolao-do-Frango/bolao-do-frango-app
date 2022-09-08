@@ -4,7 +4,7 @@ import 'package:sizer/sizer.dart';
 import '../../../../core/design/tokens/token_colors.dart';
 import '../../../../core/design/tokens/token_text_style.dart';
 import '../../../../core/design/widgets/card.dart';
-import '../../../../core/enums/bet_status.dart';
+import '../../../../core/enums/pool_status.dart';
 import 'custom_text_with_icon.component.dart';
 
 class CardComponent extends StatelessWidget {
@@ -20,7 +20,7 @@ class CardComponent extends StatelessWidget {
   final String title;
   final String value;
   final String winner;
-  final BetStatus status;
+  final PoolStatus status;
   final Icon icon;
 
   @override

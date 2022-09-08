@@ -12,7 +12,7 @@ class PoolModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute(
-          '/intro/',
+          '/intro',
           child: (_, args) => IntroPage(isPlayoff: args.data),
         ),
       ];
