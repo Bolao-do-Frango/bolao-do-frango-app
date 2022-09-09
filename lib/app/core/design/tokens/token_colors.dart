@@ -15,6 +15,7 @@ class TokenColors {
 
   static const Color kLightGold = Color(0xFFF3E1B9);
   static const Color kGold = Color(0xFFDB9B0B);
+  static const Color kLightGreen = Color(0xFFDBF8EC);
   static const Color kGreen = Color(0xFF16DB8A);
   static const Color kOrange = Color(0xFFDB6300);
   static const Color kBlue = Color(0xFF1657DB);
