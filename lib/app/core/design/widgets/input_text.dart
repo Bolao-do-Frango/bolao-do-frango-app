@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../tokens/token_colors.dart';
 import '../tokens/token_text_style.dart';
@@ -11,6 +12,7 @@ class CustomInputText extends StatelessWidget {
     this.suffixIcon,
     this.obscureText = false,
     this.enabled = true,
+    this.inputFormatter,
   });
 
   final TextEditingController controller;
@@ -18,6 +20,7 @@ class CustomInputText extends StatelessWidget {
   final IconButton? suffixIcon;
   final bool obscureText;
   final bool enabled;
+  final TextInputFormatter? inputFormatter;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,9 @@ class CustomInputText extends StatelessWidget {
       obscureText: obscureText,
       obscuringCharacter: '*',
       enabled: enabled,
+      inputFormatters: inputFormatter != null
+          ? <TextInputFormatter>[inputFormatter!]
+          : <TextInputFormatter>[],
       cursorColor: TokenColors.kOrange,
       style: TokenTextStyle.body3,
       decoration: InputDecoration(

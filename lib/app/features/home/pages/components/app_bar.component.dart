@@ -4,9 +4,23 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../core/design/tokens/token_colors.dart';
 import '../../../../core/design/tokens/token_text_style.dart';
+import '../../controllers/home.controller.dart';
 
-class AppBarComponent extends StatelessWidget {
+class AppBarComponent extends StatefulWidget {
   const AppBarComponent({super.key});
+
+  @override
+  State<AppBarComponent> createState() => _AppBarComponentState();
+}
+
+class _AppBarComponentState extends State<AppBarComponent> {
+  late HomeController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = Modular.get<HomeController>();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +75,10 @@ class AppBarComponent extends StatelessWidget {
                 ),
                 child: const Text('Sair'),
               ),
-              onTap: () => Modular.to.pushReplacementNamed('/auth/welcome'),
+              onTap: () {
+                _controller.signOut();
+                Modular.to.pushReplacementNamed('/auth/welcome');
+              },
             ),
           ],
         ),

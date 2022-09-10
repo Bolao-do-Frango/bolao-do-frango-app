@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../core/design/tokens/token_text_style.dart';
@@ -11,12 +12,14 @@ class InputWithTitle extends StatelessWidget {
     required this.text,
     this.enabled = true,
     this.suffixIcon,
+    this.inputFormatter,
   });
 
   final TextEditingController textEditingController;
   final String text;
   final bool enabled;
   final IconButton? suffixIcon;
+  final TextInputFormatter? inputFormatter;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,7 @@ class InputWithTitle extends StatelessWidget {
           hintText: text,
           suffixIcon: suffixIcon,
           enabled: enabled,
+          inputFormatter: inputFormatter,
         ),
       ],
     );

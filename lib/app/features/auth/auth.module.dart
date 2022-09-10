@@ -1,17 +1,23 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'controllers/login.controller.dart';
+import 'controllers/register.controller.dart';
 import 'pages/forget_password.page.dart';
 import 'pages/login.page.dart';
 import 'pages/register.page.dart';
 import 'pages/register_error.page.dart';
 import 'pages/register_success.page.dart';
 import 'pages/welcome.page.dart';
+import 'repositories/login.repository.dart';
+import 'repositories/register.repository.dart';
 
 class AuthModule extends Module {
   @override
   List<Bind<Object>> get binds => [
-        Bind.factory<LoginController>((i) => LoginController()),
+        Bind.factory<LoginRepository>((i) => LoginRepository()),
+        Bind.factory<RegisterRepository>((i) => RegisterRepository()),
+        Bind.factory<LoginController>((i) => LoginController(i.get())),
+        Bind.factory<RegisterController>((i) => RegisterController(i.get())),
       ];
 
   @override

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "669747335913",
+    "project_id": "bolao-do-frango",
+    "storage_bucket": "bolao-do-frango.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669747335913:android:6a0d8eab87bdb617dd1678",
+        "android_client_info": {
+          "package_name": "com.example.bolao_do_frango_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669747335913-jsqvv2tinin6ki2k8gqdhpfc2osluhol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYB-cjSC0SvG4YgG1MYPdeAhpjqlfVzjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669747335913-jsqvv2tinin6ki2k8gqdhpfc2osluhol.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "669747335913-f1gpa8vjigh700na6te7kh2p58mpegqq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bolaoDoFrangoApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,6 +9,7 @@ import '../../../../core/design/tokens/token_text_style.dart';
 import '../../../../core/design/widgets/button.dart';
 import '../../../../core/design/widgets/input_text.dart';
 import '../../../../core/design/widgets/title.dart';
+import '../../../../core/enums/screen_status.dart';
 import '../../controllers/login.controller.dart';
 
 class BottomLoginComponent extends StatelessWidget {
@@ -56,7 +57,24 @@ class BottomLoginComponent extends StatelessWidget {
         SizedBox(height: 5.h),
         CustomButton.orange(
           text: 'Login',
-          onPressed: () => Modular.to.pushReplacementNamed('/home/'),
+          onPressed: () async {
+            await controller.signIn(
+              _emailController.text,
+              _passwordController.text,
+            );
+
+            if (controller.screenStatus == ScreenStatus.error) {
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //   const SnackBar(
+              //     content: Text('Não foi possível logar!'),
+              //   ),
+              // );
+            }
+
+            if (controller.screenStatus == ScreenStatus.success) {
+              Modular.to.pushReplacementNamed('/home/');
+            }
+          },
         ),
         SizedBox(height: 2.5.h),
         Center(
