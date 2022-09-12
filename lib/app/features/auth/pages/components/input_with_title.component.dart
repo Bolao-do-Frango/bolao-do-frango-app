@@ -13,6 +13,7 @@ class InputWithTitle extends StatelessWidget {
     this.enabled = true,
     this.suffixIcon,
     this.inputFormatter,
+    this.validator,
   });
 
   final TextEditingController textEditingController;
@@ -20,6 +21,7 @@ class InputWithTitle extends StatelessWidget {
   final bool enabled;
   final IconButton? suffixIcon;
   final TextInputFormatter? inputFormatter;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class InputWithTitle extends StatelessWidget {
           suffixIcon: suffixIcon,
           enabled: enabled,
           inputFormatter: inputFormatter,
+          validator: validator,
         ),
       ],
     );

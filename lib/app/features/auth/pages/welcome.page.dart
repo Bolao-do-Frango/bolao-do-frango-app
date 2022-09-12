@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../core/design/components/logo.component.dart';
 import 'components/bottom_welcome.component.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -26,12 +27,7 @@ class _WelcomePageState extends State<WelcomePage> {
             Column(
               children: <Widget>[
                 SizedBox(height: 10.h),
-                Center(
-                  child: Image.asset(
-                    'assets/images/home.png',
-                    width: 90.w,
-                  ),
-                ),
+                const LogoComponent.large(),
               ],
             ),
             const BottomWelcomeComponent(),

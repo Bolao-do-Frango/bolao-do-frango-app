@@ -6,6 +6,7 @@ import 'pages/forget_password.page.dart';
 import 'pages/login.page.dart';
 import 'pages/register.page.dart';
 import 'pages/register_error.page.dart';
+import 'pages/register_pix.page.dart';
 import 'pages/register_success.page.dart';
 import 'pages/welcome.page.dart';
 import 'repositories/login.repository.dart';
@@ -37,6 +38,10 @@ class AuthModule extends Module {
         ChildRoute(
           '/register',
           child: (_, __) => const RegisterPage(),
+        ),
+        ChildRoute(
+          '/register_pix',
+          child: (_, __) => const RegisterPixPage(),
         ),
         ChildRoute(
           '/register_success',

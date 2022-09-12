@@ -13,6 +13,7 @@ class CustomInputText extends StatelessWidget {
     this.obscureText = false,
     this.enabled = true,
     this.inputFormatter,
+    this.validator,
   });
 
   final TextEditingController controller;
@@ -21,10 +22,12 @@ class CustomInputText extends StatelessWidget {
   final bool obscureText;
   final bool enabled;
   final TextInputFormatter? inputFormatter;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: controller,
       obscureText: obscureText,
       obscuringCharacter: '*',
@@ -32,6 +35,7 @@ class CustomInputText extends StatelessWidget {
       inputFormatters: inputFormatter != null
           ? <TextInputFormatter>[inputFormatter!]
           : <TextInputFormatter>[],
+      validator: validator,
       cursorColor: TokenColors.kOrange,
       style: TokenTextStyle.body3,
       decoration: InputDecoration(
@@ -45,6 +49,14 @@ class CustomInputText extends StatelessWidget {
           borderSide: const BorderSide(color: TokenColors.kGrey),
         ),
         disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: TokenColors.kGrey),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: TokenColors.kRed),
+        ),
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: TokenColors.kGrey),
         ),

@@ -26,6 +26,7 @@ dependencies:
   mask_text_input_formatter: ^2.4.0
   mobx: ^2.0.7+2
   sizer: ^2.0.15
+  validatorless: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -37,10 +38,12 @@ dev_dependencies:
   json_serializable: ^6.2.0
   mobx_codegen: ^2.0.7
 
-# flutter_icons:
-#   android: "launcher_icon"
-#   ios: true
-#   image_path: "assets/icon/icon.png"
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path_android: "assets/images/launcher_icons/launcher_icon_android.png"
+  image_path_ios: "assets/images/launcher_icons/launcher_icon_ios.png"
+  remove_alpha_ios: true
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -52,6 +55,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/logo/
+    - assets/images/flags/
+    - assets/images/launcher_icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
