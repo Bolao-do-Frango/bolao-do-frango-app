@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:sizer/sizer.dart';
@@ -43,7 +44,7 @@ class _AppBarComponentState extends State<AppBarComponent> {
             ),
           ),
           Text(
-            'Bem vindo!',
+            FirebaseAuth.instance.currentUser!.email ?? 'teste',
             style: TokenTextStyle.heading6,
           ),
         ],

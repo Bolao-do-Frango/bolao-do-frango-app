@@ -6,6 +6,7 @@ import 'features/faq/faq.module.dart';
 import 'features/home/home.module.dart';
 import 'features/pool/pool.module.dart';
 import 'features/ranking/ranking.module.dart';
+import 'features/splash/splash.module.dart';
 
 class AppModule extends Module {
   @override
@@ -16,5 +17,6 @@ class AppModule extends Module {
         ModuleRoute('/account', module: AccountModule()),
         ModuleRoute('/ranking', module: RankingModule()),
         ModuleRoute('/faq', module: FaqModule()),
+        ModuleRoute('/splash', module: SplashModule()),
       ];
 }

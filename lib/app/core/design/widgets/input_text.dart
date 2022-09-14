@@ -14,6 +14,8 @@ class CustomInputText extends StatelessWidget {
     this.enabled = true,
     this.inputFormatter,
     this.validator,
+    this.textInputType,
+    this.textInputAction,
   });
 
   final TextEditingController controller;
@@ -23,6 +25,8 @@ class CustomInputText extends StatelessWidget {
   final bool enabled;
   final TextInputFormatter? inputFormatter;
   final String? Function(String?)? validator;
+  final TextInputType? textInputType;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +40,8 @@ class CustomInputText extends StatelessWidget {
           ? <TextInputFormatter>[inputFormatter!]
           : <TextInputFormatter>[],
       validator: validator,
+      keyboardType: textInputType,
+      textInputAction: textInputAction,
       cursorColor: TokenColors.kOrange,
       style: TokenTextStyle.body3,
       decoration: InputDecoration(

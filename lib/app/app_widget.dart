@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
     SystemChrome.setPreferredOrientations(
         <DeviceOrientation>[DeviceOrientation.portraitUp]);
 
-    Modular.setInitialRoute('/auth/welcome');
+    Modular.setInitialRoute('/splash/');
 
     return Sizer(
       builder: (_, __, ___) {

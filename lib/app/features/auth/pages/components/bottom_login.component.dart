@@ -27,13 +27,19 @@ class BottomLoginComponent extends StatelessWidget {
       children: <Widget>[
         const CustomTitle(text: 'Entrar'),
         SizedBox(height: 3.h),
-        CustomInputText(controller: _emailController, hintText: 'Email'),
+        CustomInputText(
+          controller: _emailController,
+          hintText: 'Email',
+          textInputType: TextInputType.emailAddress,
+          textInputAction: TextInputAction.next,
+        ),
         Padding(
           padding: EdgeInsets.only(top: 3.h),
           child: Observer(builder: (_) {
             return CustomInputText(
               controller: _passwordController,
               hintText: 'Senha',
+              textInputType: TextInputType.visiblePassword,
               obscureText: controller.obscureTextPassword,
               suffixIcon: IconButton(
                 onPressed: () => controller.setObscureTextPassword(),
