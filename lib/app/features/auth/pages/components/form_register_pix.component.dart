@@ -104,7 +104,7 @@ class _FormRegisterPixComponentState extends State<FormRegisterPixComponent> {
                   const SnackBar(
                     backgroundColor: TokenColors.kRed,
                     behavior: SnackBarBehavior.floating,
-                    content: Text('Verifique os campos preenchido acima!'),
+                    content: Text('Verifique os campos preenchidos acima!'),
                   ),
                 );
               }

@@ -23,6 +23,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     _controller = Modular.get<SplashController>();
     Future.delayed(const Duration(seconds: 3)).then((_) {
+      _controller.getUser();
       if (_controller.screenStatus == ScreenStatus.success) {
         Modular.to.pushReplacementNamed('/home/');
       } else {

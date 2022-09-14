@@ -3,3 +3,9 @@ class RegisterException implements Exception {
 
   RegisterException(this.message);
 }
+
+class LoginException implements Exception {
+  final String message;
+
+  LoginException(this.message);
+}

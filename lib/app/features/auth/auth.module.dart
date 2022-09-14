@@ -9,16 +9,12 @@ import 'pages/register_error.page.dart';
 import 'pages/register_pix.page.dart';
 import 'pages/register_success.page.dart';
 import 'pages/welcome.page.dart';
-import 'repositories/login.repository.dart';
-import 'repositories/register.repository.dart';
 
 class AuthModule extends Module {
   @override
   List<Bind<Object>> get binds => [
-        Bind.factory<LoginRepository>((i) => LoginRepository()),
-        Bind.factory<RegisterRepository>((i) => RegisterRepository()),
-        Bind.factory<LoginController>((i) => LoginController(i.get())),
-        Bind.factory<RegisterController>((i) => RegisterController(i.get())),
+        Bind.factory<LoginController>((i) => LoginController()),
+        Bind.factory<RegisterController>((i) => RegisterController()),
       ];
 
   @override
