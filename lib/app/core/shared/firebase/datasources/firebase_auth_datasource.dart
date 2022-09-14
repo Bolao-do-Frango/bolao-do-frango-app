@@ -37,6 +37,21 @@ class FirebaseAuthDatasource {
     }
   }
 
+  static Future<void> sendNewPassword(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      switch (e.code) {
+        case 'auth/user-not-found':
+          throw SendNewPasswordException('Usuário não encontrado!');
+        case 'auth/invalid-email':
+          throw SendNewPasswordException('Email inválido!');
+        default:
+          throw SendNewPasswordException('Não foi possível enviar uma nova senha');
+      }
+    }
+  }
+
   static User? getUser() {
     return _auth.currentUser;
   }

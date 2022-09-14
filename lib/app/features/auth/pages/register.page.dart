@@ -22,7 +22,7 @@ class RegisterPage extends StatelessWidget {
             const LogoComponent.small(),
             SizedBox(height: 5.h),
             const CustomTitle(text: 'Cadastre-se'),
-            FormRegisterComponent(),
+            const FormRegisterComponent(),
           ],
         ),
       ),

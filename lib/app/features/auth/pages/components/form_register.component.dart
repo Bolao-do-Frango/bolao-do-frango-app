@@ -6,11 +6,19 @@ import 'package:validatorless/validatorless.dart';
 import '../../../../core/design/tokens/token_colors.dart';
 import '../../../../core/design/validators/mask.validator.dart';
 import '../../../../core/design/widgets/button.dart';
+import '../../../../core/enums/screen_status.dart';
+import '../../../../core/models/user.entity.dart';
+import '../../controllers/register.controller.dart';
 import 'input_with_title.component.dart';
 
-class FormRegisterComponent extends StatelessWidget {
-  FormRegisterComponent({super.key});
+class FormRegisterComponent extends StatefulWidget {
+  const FormRegisterComponent({super.key});
 
+  @override
+  State<FormRegisterComponent> createState() => _FormRegisterComponentState();
+}
+
+class _FormRegisterComponentState extends State<FormRegisterComponent> {
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _cellphoneController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
@@ -21,6 +29,14 @@ class FormRegisterComponent extends StatelessWidget {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  late RegisterController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = Modular.get<RegisterController>();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -30,6 +46,7 @@ class FormRegisterComponent extends StatelessWidget {
           InputWithTitle(
             textEditingController: _fullNameController,
             text: 'Nome Completo',
+            textInputType: TextInputType.name,
             validator: Validatorless.multiple([
               Validatorless.required('É obrigatório informar seu nome.'),
               Validatorless.min(
@@ -40,6 +57,7 @@ class FormRegisterComponent extends StatelessWidget {
           InputWithTitle(
             textEditingController: _cellphoneController,
             text: 'Celular',
+            textInputType: TextInputType.phone,
             inputFormatter: MaskValidator.cellphoneValidator,
             validator: Validatorless.multiple([
               Validatorless.required('É obrigatório informar seu celular.'),
@@ -49,6 +67,7 @@ class FormRegisterComponent extends StatelessWidget {
           InputWithTitle(
             textEditingController: _usernameController,
             text: 'Username',
+            textInputType: TextInputType.name,
             validator: Validatorless.multiple([
               Validatorless.required('É obrigatório definir seu username.'),
               Validatorless.min(
@@ -64,6 +83,7 @@ class FormRegisterComponent extends StatelessWidget {
           InputWithTitle(
             textEditingController: _emailController,
             text: 'Email',
+            textInputType: TextInputType.emailAddress,
             validator: Validatorless.multiple([
               Validatorless.required('É obrigatório informar seu email.'),
               Validatorless.email('Email inválido.')
@@ -72,6 +92,7 @@ class FormRegisterComponent extends StatelessWidget {
           InputWithTitle(
             textEditingController: _passwordController,
             text: 'Senha',
+            textInputType: TextInputType.visiblePassword,
             validator: Validatorless.multiple([
               Validatorless.required('É obrigatório definir sua senha.'),
               Validatorless.min(
@@ -81,6 +102,7 @@ class FormRegisterComponent extends StatelessWidget {
           InputWithTitle(
             textEditingController: _passwordConfirmController,
             text: 'Confirmar senha',
+            textInputType: TextInputType.visiblePassword,
             validator: Validatorless.multiple([
               Validatorless.required('É obrigatório confirmar sua senha.'),
               Validatorless.min(
@@ -97,7 +119,24 @@ class FormRegisterComponent extends StatelessWidget {
             onPressed: () async {
               ScaffoldMessenger.of(context).clearSnackBars();
               if (_formKey.currentState!.validate()) {
-                Modular.to.pushNamed('/auth/register_pix');
+                await _controller.register(
+                  UserEntity(
+                    name: _fullNameController.text,
+                    cellphone: _cellphoneController.text,
+                    username: _usernameController.text,
+                    email: _emailController.text,
+                    password: _passwordConfirmController.text,
+                  ),
+                );
+
+                if (_controller.screenStatus == ScreenStatus.success) {
+                  Modular.to.pushReplacementNamed('/auth/register_pix');
+                  _controller.changeScreenStatus(ScreenStatus.idle);
+                }
+
+                if (_controller.screenStatus == ScreenStatus.error) {
+                  Modular.to.pushNamed('/auth/register_error');
+                }
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(

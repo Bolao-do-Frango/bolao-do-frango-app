@@ -33,6 +33,28 @@ mixin _$RegisterController on RegisterControllerBase, Store {
     return _$registerAsyncAction.run(() => super.register(userEntity));
   }
 
+  late final _$registerPixAsyncAction =
+      AsyncAction('RegisterControllerBase.registerPix', context: context);
+
+  @override
+  Future<void> registerPix(PixEntity pixEntity) {
+    return _$registerPixAsyncAction.run(() => super.registerPix(pixEntity));
+  }
+
+  late final _$RegisterControllerBaseActionController =
+      ActionController(name: 'RegisterControllerBase', context: context);
+
+  @override
+  void changeScreenStatus(ScreenStatus screenStatus) {
+    final _$actionInfo = _$RegisterControllerBaseActionController.startAction(
+        name: 'RegisterControllerBase.changeScreenStatus');
+    try {
+      return super.changeScreenStatus(screenStatus);
+    } finally {
+      _$RegisterControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''

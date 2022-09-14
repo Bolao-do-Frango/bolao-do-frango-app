@@ -25,7 +25,7 @@ class ForgetPasswordPage extends StatelessWidget {
                 SizedBox(height: 15.h),
               ],
             ),
-            BottomForgetPasswordComponent(),
+            const BottomForgetPasswordComponent(),
           ],
         ),
       ),

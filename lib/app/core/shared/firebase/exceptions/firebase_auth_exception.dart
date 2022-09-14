@@ -9,3 +9,9 @@ class LoginException implements Exception {
 
   LoginException(this.message);
 }
+
+class SendNewPasswordException implements Exception {
+  final String message;
+
+  SendNewPasswordException(this.message);
+}

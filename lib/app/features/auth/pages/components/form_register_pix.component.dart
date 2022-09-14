@@ -7,7 +7,9 @@ import '../../../../core/design/tokens/token_colors.dart';
 import '../../../../core/design/tokens/token_text_style.dart';
 import '../../../../core/design/widgets/button.dart';
 import '../../../../core/design/widgets/card.dart';
+import '../../../../core/design/widgets/dropdown.dart';
 import '../../../../core/enums/screen_status.dart';
+import '../../../../core/models/pix.entity.dart';
 import '../../controllers/register.controller.dart';
 import 'input_with_title.component.dart';
 
@@ -21,8 +23,14 @@ class FormRegisterPixComponent extends StatefulWidget {
 
 class _FormRegisterPixComponentState extends State<FormRegisterPixComponent> {
   final TextEditingController _keyPixController = TextEditingController();
-  final TextEditingController _typeKeyPixController = TextEditingController();
 
+  late final String _dropdownValue = '';
+  final List<String> _dropdownItems = [
+    'Celular',
+    'CPF/CNPJ',
+    'E-mail',
+    'Chave aleatória',
+  ];
   late RegisterController _controller;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -38,20 +46,27 @@ class _FormRegisterPixComponentState extends State<FormRegisterPixComponent> {
     return Form(
       key: _formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          InputWithTitle(
-            textEditingController: _keyPixController,
-            text: 'Chave PIX',
-            validator: Validatorless.multiple([
-              Validatorless.required('É obrigatório informar sua chave PIX.'),
-            ]),
+          SizedBox(height: 3.h),
+          Text(
+            'Tipo de chave',
+            style: TokenTextStyle.heading5,
+          ),
+          SizedBox(height: 1.h),
+          CustomDropdown(
+            hint: 'Tipo de chave',
+            dropdownItems: _dropdownItems,
+            dropdownValue: _dropdownValue,
+            onChanged: (value) {},
+            validator: Validatorless.required(
+                'É obrigatório informar o tipo da chave PIX.'),
           ),
           InputWithTitle(
-            textEditingController: _typeKeyPixController,
-            text: 'Tipo de chave',
+            textEditingController: _keyPixController,
+            text: 'Qual sua chave pix',
             validator: Validatorless.multiple([
-              Validatorless.required(
-                  'É obrigatório selecionar o tipo de chave PIX.'),
+              Validatorless.required('É obrigatório informar sua chave PIX.'),
             ]),
           ),
           SizedBox(height: 5.h),
@@ -87,6 +102,11 @@ class _FormRegisterPixComponentState extends State<FormRegisterPixComponent> {
             onPressed: () async {
               ScaffoldMessenger.of(context).clearSnackBars();
               if (_formKey.currentState!.validate()) {
+                await _controller.registerPix(PixEntity(
+                  typeKey: _dropdownValue,
+                  key: _keyPixController.text,
+                ));
+
                 if (_controller.screenStatus == ScreenStatus.error) {
                   Modular.to.pushNamed(
                     '/auth/register_error',
@@ -112,9 +132,11 @@ class _FormRegisterPixComponentState extends State<FormRegisterPixComponent> {
           ),
           SizedBox(height: 2.5.h),
           CustomButton.white(
-            text: 'Pular',
-            onPressed: () => Modular.to.pop(),
-          ),
+              text: 'Pular',
+              onPressed: () => Modular.to.pushNamedAndRemoveUntil(
+                    '/auth/register_success',
+                    ModalRoute.withName('/auth/welcome'),
+                  )),
         ],
       ),
     );

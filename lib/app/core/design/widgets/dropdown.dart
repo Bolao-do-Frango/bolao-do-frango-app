@@ -1,52 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 import '../tokens/token_colors.dart';
 import '../tokens/token_text_style.dart';
 
-class CustomInputText extends StatelessWidget {
-  const CustomInputText({
+class CustomDropdown extends StatelessWidget {
+  const CustomDropdown({
     super.key,
-    required this.controller,
-    required this.hintText,
-    this.suffixIcon,
-    this.obscureText = false,
-    this.enabled = true,
-    this.inputFormatter,
+    required this.hint,
+    required this.dropdownItems,
+    required this.dropdownValue,
+    required this.onChanged,
     this.validator,
-    this.textInputType,
-    this.textInputAction,
   });
 
-  final TextEditingController controller;
-  final String hintText;
-  final IconButton? suffixIcon;
-  final bool obscureText;
-  final bool enabled;
-  final TextInputFormatter? inputFormatter;
+  final String hint;
+  final List<String> dropdownItems;
+  final String dropdownValue;
+  final Function(String?)? onChanged;
   final String? Function(String?)? validator;
-  final TextInputType? textInputType;
-  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      controller: controller,
-      obscureText: obscureText,
-      obscuringCharacter: '*',
-      enabled: enabled,
-      inputFormatters: inputFormatter != null
-          ? <TextInputFormatter>[inputFormatter!]
-          : <TextInputFormatter>[],
-      validator: validator,
-      keyboardType: textInputType,
-      textInputAction: textInputAction,
-      cursorColor: TokenColors.kOrange,
+    return DropdownButtonFormField<String>(
+      hint: Text(
+        hint,
+        style: TokenTextStyle.body0,
+      ),
+      borderRadius: BorderRadius.circular(12.sp),
+      elevation: 1,
       style: TokenTextStyle.body3,
       decoration: InputDecoration(
-        suffixIcon: suffixIcon,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.sp),
           borderSide: const BorderSide(color: TokenColors.kOrange),
@@ -67,9 +51,19 @@ class CustomInputText extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.sp),
           borderSide: const BorderSide(color: TokenColors.kGrey),
         ),
-        hintText: hintText,
-        hintStyle: TokenTextStyle.body0,
       ),
+      dropdownColor: TokenColors.kWhite1,
+      items: dropdownItems
+          .map(
+            (item) => DropdownMenuItem(
+              value: item,
+              child: Text(item),
+            ),
+          )
+          .toList(),
+      value: dropdownValue.isEmpty ? null : dropdownValue,
+      onChanged: onChanged,
+      validator: validator,
     );
   }
 }

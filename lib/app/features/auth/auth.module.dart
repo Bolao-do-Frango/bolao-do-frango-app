@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'controllers/forget_password.controller.dart';
 import 'controllers/login.controller.dart';
 import 'controllers/register.controller.dart';
 import 'pages/forget_password.page.dart';
@@ -14,6 +15,8 @@ class AuthModule extends Module {
   @override
   List<Bind<Object>> get binds => [
         Bind.factory<LoginController>((i) => LoginController()),
+        Bind.factory<ForgetPasswordController>(
+            (i) => ForgetPasswordController()),
         Bind.factory<RegisterController>((i) => RegisterController()),
       ];
 
