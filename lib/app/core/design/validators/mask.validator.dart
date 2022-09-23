@@ -6,4 +6,10 @@ class MaskValidator {
     filter: {'#': RegExp(r'[0-9]')},
     type: MaskAutoCompletionType.lazy,
   );
+
+    static MaskTextInputFormatter scoreValidator = MaskTextInputFormatter(
+    mask: '##',
+    filter: {'#': RegExp(r'[0-9]')},
+    type: MaskAutoCompletionType.lazy,
+  );
 }

@@ -8,9 +8,11 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.title,
+    this.bottomTab,
   });
 
   final String title;
+  final TabBar? bottomTab;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class CustomAppBar extends StatelessWidget {
       centerTitle: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       elevation: 0,
+      bottom: bottomTab,
     );
   }
 }

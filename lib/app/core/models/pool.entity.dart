@@ -1,13 +1,19 @@
-import '../enums/pool_status.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'pool.entity.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class PoolEntity {
-  final int id;
-  final PoolStatus status;
-  final int points;
+  final String description;
+  final String name;
 
   PoolEntity({
-    required this.id,
-    required this.status,
-    required this.points,
+    required this.description,
+    required this.name,
   });
+
+  factory PoolEntity.fromJson(Map<String, dynamic> json) =>
+      _$PoolEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PoolEntityToJson(this);
 }

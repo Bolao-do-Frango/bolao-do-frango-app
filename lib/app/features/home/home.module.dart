@@ -7,7 +7,7 @@ import 'repositories/home.repository.dart';
 class HomeModule extends Module {
   @override
   List<Bind<Object>> get binds => [
-        Bind.factory<HomeRepository>((i) => HomeRepository()),
+        Bind.factory<HomeRepository>((_) => HomeRepository()),
         Bind.factory<HomeController>((i) => HomeController(i.get())),
       ];
 

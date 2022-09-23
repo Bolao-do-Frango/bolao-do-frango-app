@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         fixedSize: MaterialStateProperty.all<Size>(Size(
-          MediaQuery.of(context).size.width,
+          100.w,
           7.h,
         )),
         elevation: MaterialStateProperty.all<double>(0),

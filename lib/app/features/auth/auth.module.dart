@@ -14,10 +14,10 @@ import 'pages/welcome.page.dart';
 class AuthModule extends Module {
   @override
   List<Bind<Object>> get binds => [
-        Bind.factory<LoginController>((i) => LoginController()),
+        Bind.factory<LoginController>((_) => LoginController()),
         Bind.factory<ForgetPasswordController>(
-            (i) => ForgetPasswordController()),
-        Bind.factory<RegisterController>((i) => RegisterController()),
+            (_) => ForgetPasswordController()),
+        Bind.factory<RegisterController>((_) => RegisterController()),
       ];
 
   @override

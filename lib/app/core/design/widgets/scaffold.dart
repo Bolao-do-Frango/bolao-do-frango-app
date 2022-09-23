@@ -11,6 +11,7 @@ class CustomScaffold extends StatelessWidget {
   final Widget body;
   final bool isEnableScroll;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
