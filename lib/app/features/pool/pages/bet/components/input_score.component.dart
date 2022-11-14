@@ -19,6 +19,7 @@ class InputScoreComponent extends StatelessWidget {
       width: 10.w,
       height: 4.h,
       child: TextFormField(
+        keyboardType: TextInputType.number,
         textAlignVertical: TextAlignVertical.center,
         textAlign: TextAlign.center,
         controller: controller,
